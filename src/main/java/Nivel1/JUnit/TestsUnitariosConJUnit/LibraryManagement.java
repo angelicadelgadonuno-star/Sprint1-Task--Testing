@@ -14,6 +14,12 @@ public class LibraryManagement {
     public List<Book> getBooks() {
         return new ArrayList<>(books);
     }
+    public String getTitleAt(int i) {
+       Book book = books.get(i);
+        return book.getBookName();
+   }
+
+
     /*books.add(new Book("Flesh"));
         books.add(new Book("The Loneliness of Sonia and Sunny"));
         books.add(new Book("One Hundred Years Of Solitude"));

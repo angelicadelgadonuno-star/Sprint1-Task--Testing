@@ -23,4 +23,10 @@ public class LibraryManagementTest {
         library.addBook(new Book("Flesh"));
         assertEquals(1, library.getBooks().size());
     }
+    @Test
+    void getTitleAtReturnsCorrectTitle(){
+        library.addBook(new Book("One Hundred Years Of Solitude"));
+        library.addBook(new Book("Naked Lunch"));
+        assertEquals("Naked Lunch", library.getTitleAt(1));
+    }
 }
