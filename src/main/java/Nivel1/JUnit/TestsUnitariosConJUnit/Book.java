@@ -1,5 +1,7 @@
 package Nivel1.JUnit.TestsUnitariosConJUnit;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class Book {
@@ -12,9 +14,6 @@ public class Book {
 
     public String getBookName() {
         return bookName;
-    }
-
-    public String getAuthor() {
     }
 
     @Override
