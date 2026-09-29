@@ -19,6 +19,10 @@ public class LibraryManagement {
         return book.getBookName();
    }
 
+    public void addBookAt(int position, Book book) {
+        this.books.add(position, book);
+    }
+
 
     /*books.add(new Book("Flesh"));
         books.add(new Book("The Loneliness of Sonia and Sunny"));

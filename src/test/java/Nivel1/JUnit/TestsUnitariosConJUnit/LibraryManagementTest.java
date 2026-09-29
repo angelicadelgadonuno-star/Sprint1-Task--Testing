@@ -29,4 +29,12 @@ public class LibraryManagementTest {
         library.addBook(new Book("Naked Lunch"));
         assertEquals("Naked Lunch", library.getTitleAt(1));
     }
+    @Test
+    void insertsBookInSpecificPlace(){
+        library.addBook(new Book("One Hundred Years Of Solitude"));
+        library.addBook(new Book("Naked Lunch"));
+        library.addBookAt(1, new Book ("The Loneliness of Sonia and Sunny"));
+        assertEquals("The Loneliness of Sonia and Sunny", library.getTitleAt(1));
+        assertEquals(3, library.getBooks().size());
+    }
 }
