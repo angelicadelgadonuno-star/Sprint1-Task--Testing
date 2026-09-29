@@ -1,6 +1,7 @@
 package Nivel1.JUnit.TestsUnitariosConJUnit;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class LibraryManagement {
@@ -23,11 +24,11 @@ public class LibraryManagement {
         this.books.add(position, book);
     }
 
-
-    /*books.add(new Book("Flesh"));
-        books.add(new Book("The Loneliness of Sonia and Sunny"));
-        books.add(new Book("One Hundred Years Of Solitude"));
-        books.add(new Book("Naked Lunch"));*/
-
-
+    public void removeBookAt(String bookName) {
+        for (int i = books.size() -1; i >=0; --i){
+            if (books.get(i).getBookName().equals(bookName)){
+                books.remove(i);
+            }
+        }
+    }
 }

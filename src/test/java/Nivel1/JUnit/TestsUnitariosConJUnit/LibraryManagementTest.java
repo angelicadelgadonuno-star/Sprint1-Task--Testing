@@ -37,4 +37,11 @@ public class LibraryManagementTest {
         assertEquals("The Loneliness of Sonia and Sunny", library.getTitleAt(1));
         assertEquals(3, library.getBooks().size());
     }
+    @Test
+    void removeBookByTitle(){
+        library.addBook(new Book("Somebody Flew Over de Cuckoo's Nest"));
+        library.addBook(new Book("Black is Beltza"));
+        library.removeBookAt("Black is Beltza");
+        assertEquals(1, library.getBooks().size());
+    }
 }
