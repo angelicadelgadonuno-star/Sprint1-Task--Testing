@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class Book {
+public class Book implements Comparable<Book> {
 
     private final String bookName;
 
@@ -16,8 +16,10 @@ public class Book {
         return bookName;
     }
 
+    public
+
     @Override
-    public boolean equals(Object o) {
+     boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         Book book = (Book) o;
         return Objects.equals(bookName, book.bookName);
@@ -27,5 +29,9 @@ public class Book {
     public int hashCode() {
         return Objects.hash(bookName);
     }
-}
 
+    @Override
+    public int compareTo(Book other) {
+        return bookName.compareTo(other.bookName);
+    }
+}

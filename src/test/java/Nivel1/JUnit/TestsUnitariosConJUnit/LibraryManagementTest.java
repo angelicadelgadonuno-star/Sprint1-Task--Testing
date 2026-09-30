@@ -84,7 +84,10 @@ public class LibraryManagementTest {
                 new Book("I Want To Be Awake When I Die")), library.getBooks());
     }
 
-
+    @Test
+    void duplicateTitlesAreNotAllowed(){
+        library.addBook(new Book("Flesh"));
+    }
 
 
 }
