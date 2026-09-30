@@ -75,6 +75,15 @@ public class LibraryManagementTest {
         assertEquals(4, library.getBooks().size());
     }
 
+    @Test
+    void booksAreInExpectedPositionAfterAdding(){
+        library.addBook(new Book("Dune"));
+        library.addBook(new Book("Rayuela"));
+        library.addBook(new Book("I Want To Be Awake When I Die"));
+        assertEquals(List.of(new Book("Dune"), new Book("Rayuela"),
+                new Book("I Want To Be Awake When I Die")), library.getBooks());
+    }
+
 
 
 
