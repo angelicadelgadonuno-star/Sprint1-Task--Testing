@@ -39,9 +39,21 @@ public class LibraryManagementTest {
     }
     @Test
     void removeBookByTitle(){
-        library.addBook(new Book("Somebody Flew Over de Cuckoo's Nest"));
+        library.addBook(new Book("Somebody Flew Over the Cuckoo's Nest"));
         library.addBook(new Book("Black is Beltza"));
-        library.removeBookAt("Black is Beltza");
+        library.removeBookByTitle("Black is Beltza");
         assertEquals(1, library.getBooks().size());
+        assertEquals("Somebody Flew Over the Cuckoo's Nest", library.getTitleAt(0));
+
+    }
+    @Test
+    void alphabeticalListReturn(){
+        library.addBook(new Book("Somebody Flew Over the Cuckoo's Nest"));
+        library.addBook(new Book("Black is Beltza"));
+        library.addBook(new Book("One Hundred Years Of Solitude"));
+        library.addBook(new Book("Naked Lunch"));
+        library.addBook(new Book("Flesh"));
+        assertEquals(expectedSortedList:  );
+
     }
 }

@@ -24,7 +24,7 @@ public class LibraryManagement {
         this.books.add(position, book);
     }
 
-    public void removeBookAt(String bookName) {
+    public void removeBookByTitle (String bookName) {
         for (int i = books.size() -1; i >=0; --i){
             if (books.get(i).getBookName().equals(bookName)){
                 books.remove(i);
