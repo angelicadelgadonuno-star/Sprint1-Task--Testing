@@ -9,7 +9,10 @@ public class LibraryManagement {
     private final List<Book> books = new ArrayList<>();
 
     public void addBook (Book book) {
-       this.books.add(book);
+       if(this.books.contains(book)){
+           throw new IllegalArgumentException("ERROR: That Book Title is already in our database");
+       }
+        this.books.add(book);
     }
 
     public List<Book> getBooks() {
@@ -22,6 +25,9 @@ public class LibraryManagement {
    }
 
     public void addBookAt(int position, Book book) {
+        if(this.books.contains(book)){
+            throw new IllegalArgumentException("ERROR: That Book Title is already in our database");
+        }
         this.books.add(position, book);
     }
 

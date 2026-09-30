@@ -7,45 +7,46 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.fail;
 
 public class LibraryManagementTest {
 
     private LibraryManagement library;
 
     @BeforeEach
-    void setUp(){
+    void setUp() {
         library = new LibraryManagement();
     }
 
     @Test
-    void collectionIsNotNullAfterInstantiation(){
+    void collectionIsNotNullAfterInstantiation() {
         assertNotNull(library.getBooks());
     }
 
     @Test
-    void sizeIsOneAfterAddingOneBook(){
+    void sizeIsOneAfterAddingOneBook() {
         library.addBook(new Book("Flesh"));
         assertEquals(1, library.getBooks().size());
     }
 
     @Test
-    void getTitleAtReturnsCorrectTitle(){
+    void getTitleAtReturnsCorrectTitle() {
         library.addBook(new Book("One Hundred Years Of Solitude"));
         library.addBook(new Book("Naked Lunch"));
         assertEquals("Naked Lunch", library.getTitleAt(1));
     }
 
     @Test
-    void insertsBookInSpecificPlace(){
+    void insertsBookInSpecificPlace() {
         library.addBook(new Book("One Hundred Years Of Solitude"));
         library.addBook(new Book("Naked Lunch"));
-        library.addBookAt(1, new Book ("The Loneliness of Sonia and Sunny"));
+        library.addBookAt(1, new Book("The Loneliness of Sonia and Sunny"));
         assertEquals("The Loneliness of Sonia and Sunny", library.getTitleAt(1));
         assertEquals(3, library.getBooks().size());
     }
 
     @Test
-    void removeBookByTitle(){
+    void removeBookByTitle() {
         library.addBook(new Book("Somebody Flew Over the Cuckoo's Nest"));
         library.addBook(new Book("Black is Beltza"));
         library.removeBookByTitle("Black is Beltza");
@@ -54,7 +55,7 @@ public class LibraryManagementTest {
     }
 
     @Test
-    void sortedListIsAlphabeticalAndDoesNotModifyOriginal(){
+    void sortedListIsAlphabeticalAndDoesNotModifyOriginal() {
         library.addBook(new Book("Somebody Flew Over The Cuckoo's Nest"));
         library.addBook(new Book("Black Is Beltza"));
         library.addBook(new Book("One Hundred Years Of Solitude"));
@@ -67,7 +68,7 @@ public class LibraryManagementTest {
     }
 
     @Test
-    void sizeIsCorrectAfterAddingSeveralBooks(){
+    void sizeIsCorrectAfterAddingSeveralBooks() {
         library.addBook(new Book("Dune"));
         library.addBook(new Book("Rayuela"));
         library.addBook(new Book("I Want To Be Awake When I Die"));
@@ -76,7 +77,7 @@ public class LibraryManagementTest {
     }
 
     @Test
-    void booksAreInExpectedPositionAfterAdding(){
+    void booksAreInExpectedPositionAfterAdding() {
         library.addBook(new Book("Dune"));
         library.addBook(new Book("Rayuela"));
         library.addBook(new Book("I Want To Be Awake When I Die"));
@@ -85,9 +86,28 @@ public class LibraryManagementTest {
     }
 
     @Test
-    void duplicateTitlesAreNotAllowed(){
+    void duplicateTitlesAreNotAllowed() {
         library.addBook(new Book("Flesh"));
+        try {
+            library.addBook(new Book("Flesh"));
+            fail("Expected IllegalArgumentException");
+        } catch (IllegalArgumentException e) {
+            assertEquals(1, library.getBooks().size());
+
+        }
     }
 
-
+    @Test
+    void duplicateTitlesAreNotAllowedWhenAddingAtPosition(){
+        library.addBook(new Book("Flesh"));
+        try{
+            library.addBookAt(0, new Book("Flesh"));
+            fail("Expected IllegalArgumentException");
+        } catch (IllegalArgumentException e){
+            assertEquals(1, library.getBooks().size());
+        }
+    }
 }
+
+
+
