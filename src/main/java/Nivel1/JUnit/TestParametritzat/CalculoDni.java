@@ -1,24 +1,15 @@
 package Nivel1.JUnit.TestParametritzat;
 
-import com.sun.jdi.StringReference;
-
 public class CalculoDni {
 
-    private int dniNumber;
-    private char dniLetter;
+    private static final String LETTERS = "TRWAGMYFPDXBNJZSQVHLCKE";
+    private static final int DNI_MAX = 99999999;
 
-    public CalculoDni(int dniNumber, char dniLetter) {
-        this.dniNumber = dniNumber;
-        this.dniLetter = dniLetter;
-    }
-
-    public char getDniLetter() {
-        return dniLetter;
-    }
-
-    public char calculateDniLetter (int dniNumber){
-       int numberPosition = dniNumber % 23;
-       String letterPosition = "TRWAGMYFPDXBNJZSQVHLCKE";
-        return letterPosition.charAt(numberPosition);
+    public static char calculateDniLetter (int dniNumber){
+        if(dniNumber < 0 || dniNumber > DNI_MAX){
+            throw new IllegalArgumentException("DNI number out of range. Must be between 0 and " + DNI_MAX);
+        }
+        int numberPosition = dniNumber % 23;
+        return LETTERS.charAt(numberPosition);
     }
 }
