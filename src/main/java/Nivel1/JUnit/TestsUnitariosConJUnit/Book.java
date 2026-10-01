@@ -1,7 +1,5 @@
 package Nivel1.JUnit.TestsUnitariosConJUnit;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 
 public class Book implements Comparable<Book> {
@@ -16,10 +14,8 @@ public class Book implements Comparable<Book> {
         return bookName;
     }
 
-    public
-
     @Override
-     boolean equals(Object o) {
+    public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         Book book = (Book) o;
         return Objects.equals(bookName, book.bookName);
