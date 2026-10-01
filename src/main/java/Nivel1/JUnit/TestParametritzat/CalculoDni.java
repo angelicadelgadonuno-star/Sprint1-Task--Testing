@@ -9,7 +9,7 @@ public class CalculoDni {
         if(dniNumber < 0 || dniNumber > DNI_MAX){
             throw new IllegalArgumentException("DNI number out of range. Must be between 0 and " + DNI_MAX);
         }
-        int numberPosition = dniNumber % 23;
+        int numberPosition = dniNumber % LETTERS.length();
         return LETTERS.charAt(numberPosition);
     }
 }
