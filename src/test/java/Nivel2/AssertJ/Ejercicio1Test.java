@@ -13,6 +13,14 @@ public class Ejercicio1Test {
         assertThat(firstValue).isEqualTo(secondValue);
     }
 
+    @Test
+    void integers_differentValues_areNotEqual() {
+        Integer firstValue = 125;
+        Integer secondValue = 130;
+        assertThat(firstValue).isNotEqualTo(secondValue);
+    }
+
+
 
 }
 
