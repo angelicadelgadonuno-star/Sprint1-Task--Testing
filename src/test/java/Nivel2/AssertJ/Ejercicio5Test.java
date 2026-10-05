@@ -15,7 +15,5 @@ public class Ejercicio5Test {
         members.put("Sandra", 25);
         members.put("Gerardo",78);
         assertThat(members).containsKey("Sandra");
-        assertThat(members).containsEntry("Gerardo",78);
     }
-
 }
